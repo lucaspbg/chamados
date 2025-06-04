@@ -29,7 +29,8 @@
 
   <script>
     function chamar(setor) {
-      fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec?setor=' + setor)
+      fetch('https://script.google.com/macros/s/AKfycbyxfpUzWpiuKjpnzybJFomXwGvOGLtY0N3U7NB8b83DLlZmJk_0SgBR3gcYEeZAP8IQ/exec?setor=' + setor)
+
         .then(response => response.text())
         .then(data => alert('✅ ' + data))
         .catch(err => alert('❌ Erro ao acionar chamado.'));

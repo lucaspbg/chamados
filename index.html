@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Chamados</title>
+  <style>
+    body { font-family: Arial; text-align: center; padding: 40px; }
+    button {
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 10px;
+      border: none;
+      background-color: #007bff;
+      color: white;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Acionar Chamado</h2>
+
+  <button onclick="chamar('TI')">TI</button>
+  <button onclick="chamar('Limpeza')">Limpeza</button>
+  <button onclick="chamar('Manutenção')">Manutenção</button>
+  <button onclick="chamar('Recepção')">Recepção</button>
+
+  <script>
+    function chamar(setor) {
+      fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec?setor=' + setor)
+        .then(response => response.text())
+        .then(data => alert('✅ ' + data))
+        .catch(err => alert('❌ Erro ao acionar chamado.'));
+    }
+  </script>
+</body>
+</html>
 

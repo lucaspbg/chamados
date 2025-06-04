@@ -22,10 +22,16 @@
 
 <script>
 function chamar(setor){
-  fetch('https://script.google.com/macros/s/AKfycbyxfpUzWpiuKjpnzybJFomXwGvOGLtY0N3U7NB8b83DLlZmJk_0SgBR3gcYEeZAP8IQ/exec?setor='+encodeURIComponent(setor),
-        {mode:'no-cors'})
-    .then(()=>alert('✅ Chamado enviado!'))
-    .catch(()=>alert('❌ Erro ao acionar chamado.'));
+fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec?setor=TI', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
+.then(response => response.text())
+.then(data => alert('✅ ' + data))
+.catch(error => alert('❌ Erro ao acionar chamado: ' + error));
+
 }
 </script>
 </body>

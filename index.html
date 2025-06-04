@@ -21,18 +21,17 @@
 <button onclick="chamar('Recepção')">Recepção</button>
 
 <script>
-function chamar(setor){
-fetch('https://script.google.com/macros/s/SEU_SCRIPT_ID/exec?setor=TI', {
-  method: 'GET',
-  headers: {
-    'Content-Type': 'application/json'
+  function chamar(setor) {
+    var script = document.createElement('script');
+    script.src = 'https://script.google.com/macros/s/SEU_SCRIPT_ID/exec?setor=' + encodeURIComponent(setor) + '&callback=retorno';
+    document.body.appendChild(script);
   }
-})
-.then(response => response.text())
-.then(data => alert('✅ ' + data))
-.catch(error => alert('❌ Erro ao acionar chamado: ' + error));
 
-}
+  function retorno(resposta) {
+    alert('✅ ' + resposta.mensagem);
+  }
+</script>
+
 </script>
 </body>
 </html>

@@ -1,39 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <title>Chamados</title>
-  <style>
-    body { font-family: Arial; text-align: center; padding: 40px; }
-    button {
-      padding: 15px 30px;
-      margin: 10px;
-      font-size: 18px;
-      border-radius: 10px;
-      border: none;
-      background-color: #007bff;
-      color: white;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Chamados</title>
+<style>
+  body{font-family:Arial;text-align:center;padding:40px}
+  button{
+    padding:15px 30px;margin:10px;font-size:18px;border-radius:10px;
+    border:none;background:#007bff;color:#fff
+  }
+  button:hover{background:#0056b3}
+</style>
 </head>
 <body>
-  <h2>Acionar Chamado</h2>
+<h2>Acionar Chamado</h2>
 
-  <button onclick="chamar('TI')">TI</button>
-  <button onclick="chamar('Limpeza')">Limpeza</button>
-  <button onclick="chamar('Manutenção')">Manutenção</button>
-  <button onclick="chamar('Recepção')">Recepção</button>
+<button onclick="chamar('TI')">TI</button>
+<button onclick="chamar('Limpeza')">Limpeza</button>
+<button onclick="chamar('Manutenção')">Manutenção</button>
+<button onclick="chamar('Recepção')">Recepção</button>
 
-  <script>
-    function chamar(setor) {
-      fetch('https://script.google.com/macros/s/AKfycbyxfpUzWpiuKjpnzybJFomXwGvOGLtY0N3U7NB8b83DLlZmJk_0SgBR3gcYEeZAP8IQ/exec?setor=' + setor)
-        .then(response => response.text())
-        .then(data => alert('✅ ' + data))
-        .catch(err => alert('❌ Erro ao acionar chamado.'));
-    }
-  </script>
+<script>
+function chamar(setor){
+  fetch('https://script.google.com/macros/s/AKfycbyxfpUzWpiuKjpnzybJFomXwGvOGLtY0N3U7NB8b83DLlZmJk_0SgBR3gcYEeZAP8IQ/exec?setor='+encodeURIComponent(setor),
+        {mode:'no-cors'})
+    .then(()=>alert('✅ Chamado enviado!'))
+    .catch(()=>alert('❌ Erro ao acionar chamado.'));
+}
+</script>
 </body>
 </html>
